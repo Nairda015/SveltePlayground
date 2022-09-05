@@ -1,4 +1,5 @@
 <script>
+    import { players } from '../stores.js';
 
     export let name;
     export let points;
@@ -8,6 +9,10 @@
     const addPoints = () => points++;
     const removePoints = () => points--;
 
+    const removePlayer = () =>
+    {
+        players.update(data => data.filter(x => x.name !== name))
+    }
 </script>
 
 
@@ -25,6 +30,7 @@
     {#if isEditVisible}
         <button on:click={addPoints}>+</button>
         <button on:click={removePoints}>-</button>
+        <button on:click={removePlayer}>Remove</button>
     {/if}
 
 </div>
